@@ -1,0 +1,136 @@
+\documentclass[pdftex,12pt,a4paper]{report}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{float}
+\usepackage{fancyvrb}
+\fvset{xleftmargin=2em}
+
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+\usepackage{tikzscale}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+\usepackage[font=small,labelfont=bf,tableposition=top]{caption}
+
+\usepackage[utf8]{inputenc} % isto é um comentário
+\usepackage[portuges]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+%\usepackage{lmodern}
+\usepackage[obeyspaces,spaces]{url}
+\usepackage[left=25mm,right=25mm,top=25mm,bottom=25mm]{geometry}
+\usepackage{titlesec}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+
+%identa 1º paragrafo de capitulos e secções
+\usepackage{indentfirst}
+\usepackage{minted}
+\usemintedstyle{borland}
+\setminted{frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+linenos, 
+breaklines,
+breakautoindent=false,
+autogobble
+}
+\usepackage{pdfpages}
+
+
+\usepackage[]{hyperref}
+\hypersetup{
+%pdftitle={Trabalho 1 - Gestão de Projeto},
+%pdfauthor={Bruno Pereira},
+%pdfsubject={Investigação Operacional},
+%pdfkeywords={keyword1, keyword2}},
+bookmarksnumbered=true,     
+bookmarksopen=true,         
+bookmarksopenlevel=1,       
+colorlinks=true,            
+pdfstartview=Fit,           
+pdfpagemode=UseOutlines, % this is the option you were lookin for
+pdfpagelayout=TwoPageRight
+		}
+%\hypersetup{pdftex,colorlinks=true,allcolors=blue}
+%\usepackage{hypcap}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge}
+
+
+\begin{document}
+
+\input{./report/title.tex}
+\begin{abstract}
+Este relatório tem como objetivo apresentar a experiência de modelação
+e resolução dos casos propostos na realização do 1º trabalho prático da unidade
+curricular de Modelos Estocásticos de Investigação Operacional. Para a 1ª parte
+além da apresentação do modelo e resultados, procuram-se justificar
+detalhadamente todas as decisões tomadas. 
+
+O relatório encontra-se dividido por capítulos, em que cada capítulo corresponde
+a uma parte do trabalho.
+\end{abstract}
+
+\tableofcontents
+
+\input{./report/chapters/intro}
+\input{./report/chapters/parte1}
+\input{./report/chapters/parte2}
+\input{./report/chapters/concl}
+
+
+
+\appendix
+
+\chapter{Código do Programa}
+
+
+
+\begin{minted}{c}
+
+#include <stdio.h>
+#define N 10
+/* Block
+ * comment */
+
+ int main()
+ {
+     int i;
+	 
+	   // Line comment.
+		 puts("Hello world!");
+			     
+		 for (i = 0; i < N; i++)
+		 {
+		 puts("LaTeX is also great for programmers!");
+		 }
+										 
+	   return 0;
+				
+}
+\end{minted}
+
+
+E ainda possível importar diretamente o ficheiro:
+
+
+%\begin{longlisting}
+%	\inputminted{c}{Exercicio2/exe2_1.l}
+%	\caption{Ficheiro fonte do exercício 2.1}
+%	\label{listing:3}
+%\end{longlisting}
+
+
+
+
+
+\bibliographystyle{alpha}
+
+\bibliography{./report/bibs/biblio}
+
+\end {document}
+
+
