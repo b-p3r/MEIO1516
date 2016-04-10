@@ -1,0 +1,9 @@
+B)
+
+Durante a análise e do problema apresentado, foi pressuposto que nas caixas normais são atendidos apenas clientes que tragam mais do que 10 unidades de artigos. Esta suposição tem como objetivo simplificar a resolução deste problema, pois em situações reais o atendimento a clientes que comprem até 10 unidades de artigos não está limitado ás caixas designadas para tal volume de compras.
+
+No entanto, o pressuposto acima discutido levanta a seguinte questão: se os clientes são segregados em dois tipos de servidores de acordo com o volume de compras, faz sentido considerar uma única taxa de chegada dos clientes ás caixas, ou duas taxas de chegada correspondentes a cada tipo de sistema de servidores?
+
+A partir dos dados gerados para a resolução deste problema, é a possível determinar apenas uma taxa de chegada única, usando os intervalos de tempo entre duas chegadas consecutivas. Na listagem deste intervalos não existe uma discriminação entre clientes com compras de mais ou menos 10 unidades de artigos. Consequentemente, para determinar uma taxa de chegada para cada tipo de sistema de servidores, seria necessário assumir que uma parte dos intervalos listados corresponderia a chegadas a uma caixa para menos de 10 unidades, e a parte restante corresponderia a chegadas a uma caixa normal. Esta separação poderia ser definida ao determinar a percentagem de clientes que compraram menos de 10 unidades de artigos, e aplicar este valor á soma dos intervalos de chegadas, usando o valor correspondente para calcular a taxa de chegada para caixas de 10 artigos ou menos, e o restante valor para as caixas normais.
+
+No entanto, o grupo preferiu usar uma taxa de chegada unica, pois a utilização de duas taxas de chegadas distintas involve assumir que uma parte dos intervalos listados pertencem a chegadas a uma caixa de 10 ou menos artigos, o que não é suportado por os dados utilizados na resolução do problema.
