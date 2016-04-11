@@ -1,5 +1,5 @@
-Grupo que inclui o Aluno com o Nº 72628
-MEIO-TP1 - Intervalos de tempo entre duas chegadas consecutivas às caixas (segundos)
+Grupo que inclui o Aluno com o No 72628
+MEIO-TP1 - Intervalos de tempo entre duas chegadas consecutivas as caixas (segundos)
 30.3
 38.1
 17.1

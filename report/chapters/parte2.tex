@@ -3,7 +3,51 @@
 
 \section{Resumo de artigo}
 
+\section{Teoria de filas de espera aplicadas a simulações de performance de
+	\emph{Cloudcomputing}}\footnote{\url{http://www.dbjournal.ro/archive/20/20_7.pdf}}
 
+
+
+Este artigo introduz os conceitos de teoria de filas de espera e processos
+estocásticos aplicáveis à modelação de performance computacional, comparando no
+final os resultados obtidos através da solução matemática com os resultados
+obtidos através da simulação por software de um modelo de filas de espera.
+   
+Inicialmente, é descrito de uma formal geral o processo de \emph{Poisson},
+correspondente ao registo e contagem dos intervalos de tempo entre a ocorrência
+de eventos independentes. Considerando um processo em que tais eventos ocorrem
+de forma aleatória, a distribuição exponencial é a função necessária para
+descrever tal processo. O autor defende a importância da distribuição
+exponencial na simulação de performance computacional, usando como exemplo
+a modelação da chegada de pedidos a um servidor, no qual se pode assumir que os
+pedidos são gerados de forma aleatória e independente.
+
+Para a futura análise da aplicabilidade de uma simulação computacional, o autor
+considera um modelo de fila de espera \emph{M/G/1}, ou fila de espera com distribuição
+genérica. Este modelo usa uma distribuição exponencial para descrever taxa de
+chegada de pedidos ao sistema, com um tempo de atendimento aleatório.
+A utilização da teoria das filas de espera permite determinar o tempo médio que
+um pedido espera na fila antes de ser servido, que corresponde à total dos
+tempos de atendimento para cada pedido à frente do pedido considerado, somado
+com o tempo de atendimento restante do pedido que é servido no momento da
+chegada do pedido considerado à fila. O autor apresenta também os processos
+matemáticos para a medição de performance no modelo \emph{M/G/1}, usando uma taxa de
+chegada lambda e um tempo de atendimento X para determinar a utilização do
+sistema. 
+
+Seguidamente, o autor descreve a criação do algoritmo para modelar os sistema
+\emph{M/G/1}, referindo o uso do método da transformada inversa para a geração de
+tempos de intervalo entre chegadas e tempos de atendimento aleatórios.
+Consequentemente o autor procede à comparação entre a solução matemática
+e a simulação informática deste problema de filas de espera, com o objetivo de
+testar a aplicabilidade da último. A simulação é testada com quatro
+distribuições de tempo de chegada diferentes, e confirma a precisão do modelo de
+simulação ao verificar que os valore obtidos estão de acordo com os resultados
+das soluções matemáticas para as quatro distribuições testadas.
+
+O autor conclui por fim, que o a simulação computacional é uma ferramenta
+importante para a análise de modelos de filas de espera, principalmente em casos
+de maior complexidade em que a aproximação matemática pode ser não prática.
 
 
 

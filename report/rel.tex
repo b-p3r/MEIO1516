@@ -1,9 +1,12 @@
 \documentclass[pdftex,12pt,a4paper]{report}
-
+\usepackage[nottoc]{tocbibind}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[pdftex]{graphicx}
 \usepackage{float}
 \usepackage{fancyvrb}
+\usepackage{dtklogos}
 \fvset{xleftmargin=2em}
 
 \usepackage{pgfplots}
@@ -23,14 +26,13 @@
 \usepackage{titlesec}
 \usepackage{mathtools}
 \usepackage{amsfonts}
-
+\usepackage{hologo}
 %identa 1Âº paragrafo de capitulos e secÃ§Ãµes
 \usepackage{indentfirst}
 \usepackage{url}
 %\usepackage{alltt}
 \usepackage[]{hyperref}
 \usepackage{xspace}
-\usepackage[final]{pdfpages}
 
 \hypersetup{
 %pdftitle={Trabalho 1 - GestÃ£o de Projeto},
@@ -48,8 +50,9 @@ pdfpagelayout=TwoPageRight
 
 \usepackage{minted}
 \usemintedstyle{borland}
-\setminted{frame=lines,
-framesep=2mm,
+\setminted{
+%frame=lines,
+%framesep=2mm,
 baselinestretch=1.2,
 fontsize=\footnotesize,
 linenos, 
@@ -58,115 +61,32 @@ breakautoindent=false,
 autogobble
 }
 \usepackage{caption}
+\usepackage[final]{pdfpages}
+\captionsetup[table]{aboveskip=0pt}
+\captionsetup[table]{belowskip=10pt}
+\usepackage{longtable}
+\usepackage{subfigure}
+\newenvironment{longlisting}{\captionsetup{type=listing}}{}
+
+
+\usepackage{listings}
 
 \begin{document}
 
 \input{./report/title.tex}
-\begin{abstract}
-
-
-
-
-
-\end{abstract}
 
 \tableofcontents
-\input{./report/chapters/intro}
 
 \input{./report/chapters/parte1}
 
 \input{./report/chapters/parte2}
 
-\input{./report/chapters/concl}
 
 
 \appendix
 
-\chapter{Código do Programa}
+\input{./report/chapters/apendice}
 
-
-
-
-\begin{verbatim}
-
-public class Aula()
-
-  {
-
-    int n, m;
-
-    int max(int a, int b)
-
-      {
-
-       ......
-
-       return(max);
-
-      }
-
-  }
-
-\end{verbatim}
-
-
-
-\begin{verbatim}
-
-llll sanjdb c kjnjcnjnjj mmmmmmmmmmmmm hhhhhhhhhhhhhhhhhhhhhhhh
-jjjjjjjjjjjjjjjjjjjjjjjjjjjj kkkkkkkkkkkkkkkkkk
-
-      aqui deve aparecer o código do programa,
-
-      tal como está formato no ficheiro-fonte "darius.java"
-
-      caso indesejável $\varepsilon$
-
-\end{verbatim}
-
-
-
-\begin{minted}{c}
-
-#include <stdio.h>
-#define N 10
-/* Block
- * comment */
-
- int main()
- {
-     int i;
-	 
-	   // Line comment.
-		 puts("Hello world!");
-			     
-		 for (i = 0; i < N; i++)
-		 {
-		 puts("LaTeX is also great for programmers!");
-		 }
-										 
-	   return 0;
-				
-}
-\end{minted}
-
-
-E ainda possível importar diretamente o ficheiro:
-
-
-%\begin{longlisting}
-%	\inputminted{c}{Exercicio2/exe2_1.l}
-%	\caption{Ficheiro fonte do exercício 2.1}
-%	\label{listing:3}
-%\end{longlisting}
-
-
-
-
-
-\bibliographystyle{alpha}
-
-\bibliography{./report/bibs/pl}
 
 \end {document}
 

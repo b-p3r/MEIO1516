@@ -1,4 +1,4 @@
-Grupo que inclui o Aluno com o Nº 72628
+Grupo que inclui o Aluno com o No 72628
 MEIO-TP1 - Numero de unidades de artigos compradas por cada cliente
 Numero/Frequencia
 1	67
