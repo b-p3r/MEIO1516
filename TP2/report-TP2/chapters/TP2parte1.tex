@@ -16,6 +16,7 @@ A taxa de procura para o armazém não está especificada no enunciado. No entan
 
 Por fim, apesar de todas as distribuições usadas na parte I do trabalho serem uniformes, assumimos, segundo as indicações do enunciado, que todas as variáveis \emph{DDLT} seguem leis Normais. 
 
+\newpage
 
 \subsection{Cálculos}
 
@@ -44,10 +45,10 @@ Para modelar a gestão de inventário da empresa W\&W, será necessário determi
 O armazém é responsável por a gestão do nível de inventário da empresa, servindo de intermediário entre o fabricante do artigo e as lojas de venda ao público. Utilizando os dados anteriormente referidos determinamos:
 
 \begin{itemize}
-\item Prazo de entrega \emph{l} = 10 + \dfrac{8}{2} = 14  dias;
-\item Custo anual de posse \emph{C1} = \emph{b} \times \emph{i} = 70 \times 0.21 = 14.70 euros por artigo por ano;
-\item Custo de quebra \emph{C2} = 100 - 70 = 30 euros por artigo;
-\item Custo de passagem de encomenda \emph{C3} = 200 euros por encomenda;
+	\item Prazo de entrega \emph{l} = 10 + \frac{8}{2} = 14  dias;
+	\item Custo anual de posse \emph{C1} = \emph{b} \times \emph{i} = 70 \times 0.21 = 14.70 euros por artigo por ano;
+	\item Custo de quebra \emph{C2} = 100 - 70 = 30 euros por artigo;
+	\item Custo de passagem de encomenda \emph{C3} = 200 euros por encomenda;
 \end{itemize}
 
 Para o cálculo do prazo de entrega de uma encomenda ao armazém, foi usado o último dígito do número de aluno 72628.
@@ -55,31 +56,30 @@ Para o cálculo do prazo de entrega de uma encomenda ao armazém, foi usado o ú
 Tal como anteriormente referido, assume-se para o armazém uma procura uniformemente distribuída, entre 0 e 15 unidades, que corresponde á soma das procuras individuais de cada loja por este abastecida. Desta forma, é utilizado:
 
 \begin{itemize}
-\item Distribuição \emph{X} \approx Uniforme[0;15];
-\item Média da distribuição: \dfrac{15 - 0}{2} = 7.5 unidades;
-\item Desvio padrão: \sqrt{18.75} = 4.3301;
+	\item Distribuição \emph{X} \approx Uniforme[0;15];
+	\item Média da distribuição: \frac{15 - 0}{2} = 7.5 unidades;
+	\item Desvio padrão: \sqrt{18.75} = 4.3301;
 \end{itemize}
 
 Inicializando o processo de cálculo com \emph{E(DDLT > S)} = 0:
 
 \begin{itemize}
-\item \emph{1ª iteração:}
- 
-	\emph{q*}=\sqrt{\dfrac{2 \times r \times (C2 \times E(DDLT > S) + C3)}{C1}}
-	\emph{q*}=\sqrt{\dfrac{2 \times 7.5 \times 365 \times (30 \times 0 + 200)}{14.70}}
+	\item \emph{1ª iteração:}
+	\emph{q*}=\sqrt{\frac{2 \times r \times (C2 \times E(DDLT > S) + C3)}{C1}}
+	\emph{q*}=\sqrt{\frac{2 \times 7.5 \times 365 \times (30 \times 0 + 200)}{14.70}}
 	\emph{q*}=272.9281 \approx 273 unidades;
 
 	Com \emph{q} determinado, é possível calcular \emph{P(DDLT > S)} com:
 
-	\emph{P(DDLT > S)}=\dfrac{\emph{C1 \times q}}{\emph{C2 \times r}}
-	\emph{P(DDLT > S)}=\dfrac{14.70 \times 273}{30 \times 7.5 \times 365}
+	\emph{P(DDLT > S)}=\frac{\emph{C1 \times q}}{\emph{C2 \times r}}
+	\emph{P(DDLT > S)}=\frac{14.70 \times 273}{30 \times 7.5 \times 365}
 	\emph{P(DDLT > S)}=0.0489;
 
 	Através da tabela \emph{Área da Distribuição Normal Standard, N(0,1)}, disponível nos apontamentos da unidade curricular, obtem-se \emph{Z} \approx 1.66;
 	
 	Para determinar o segundo integral, necessário ao calculo de \emph{E(DDLT > S)}, temos:
 	
-	\emph{Z}=\dfrac{3 \times \emph{N}}{100}
+	\emph{Z}=\frac{3 \times \emph{N}}{100}
 	\emph{N}=55;
 
 	Através da tabela \emph{Função de Densidade Normal Standard, N(0,1)}, disponível nos apontamentos da unidade curricular, obtem-se o segundo integral: 0.018440;
@@ -102,21 +102,21 @@ Inicializando o processo de cálculo com \emph{E(DDLT > S)} = 0:
 	
 	Para a segunda iteração é utilizado \emph{E(DDLT > S)} = 0.1436;
 	
-	\emph{q*}=\sqrt{\dfrac{2 \times r \times (C2 \times E(DDLT > S) + C3)}{C1}}
-	\emph{q*}=\sqrt{\dfrac{2 \times 7.5 \times 365 \times (30 \times 0.1436 + 200)}{14.70}}
+	\emph{q*}=\sqrt{\frac{2 \times r \times (C2 \times E(DDLT > S) + C3)}{C1}}
+	\emph{q*}=\sqrt{\frac{2 \times 7.5 \times 365 \times (30 \times 0.1436 + 200)}{14.70}}
 	\emph{q*}=275.8519 \approx 276 unidades;
 
 	Com \emph{q} determinado, é possível calcular \emph{P(DDLT > S)} utilizando:
 
-	\emph{P(DDLT > S)}=\dfrac{\emph{C1 \times q}}{\emph{C2 \times r}}
-	\emph{P(DDLT > S)}=\dfrac{14.70 \times 276}{30 \times 7.5 \times 365}
+	\emph{P(DDLT > S)}=\frac{\emph{C1 \times q}}{\emph{C2 \times r}}
+	\emph{P(DDLT > S)}=\frac{14.70 \times 276}{30 \times 7.5 \times 365}
 	\emph{P(DDLT > S)}=0.0494;
 
 	Através da tabela \emph{Área da Distribuição Normal Standard, N(0,1)}, disponível nos apontamentos da unidade curricular, obtem-se \emph{Z} \approx 1.65;
 	
 	Para determinar o segundo integral, necessário ao calculo de \emph{E(DDLT > S)}, temos:
 	
-	\emph{Z}=\dfrac{3 \times \emph{N}}{100}
+	\emph{Z}=\frac{3 \times \emph{N}}{100}
 	\emph{N}=55;
 
 	Através da tabela \emph{Função de Densidade Normal Standard, N(0,1)}, disponível nos apontamentos da unidade curricular, obtem-se o segundo integral: 0.018440;
@@ -148,8 +148,8 @@ De acordo com os cálculos efetudos, determinamos para o armazém os seguintes v
 Os resultados obtidos permitem concluir que uma ordem de encomenda com a quantia constante de 276 unidades deverá ser enviada sempre que o stock em armazém atinge valores inferiores a 118 artigos. Adicionalmente, e sendo a procura conhecida, é possível calcular o valor aproximado de:
 
 \begin{itemize}
-\item Frequência de encomendas: \dfrac{\emph{q}}{\emph{r}} = \dfrac{276}{7.5} \approx 37 dias;
-\item Encomendas anuais: \dfrac{\emph{r}}{\emph{q}} = \dfrac{7.5 \times 365}{276} \approx 10 encomendas;
+\item Frequência de encomendas: \frac{\emph{q}}{\emph{r}} = \frac{276}{7.5} \approx 37 dias;
+\item Encomendas anuais: \frac{\emph{r}}{\emph{q}} = \frac{7.5 \times 365}{276} \approx 10 encomendas;
 \end{itemize}
 
 Ao seguir esta política, o armazém realizará por ano cerca de 10 encomendas, com um intervalo entre dois pedidos de encomenda consecutivos aproximadamente igual a 37 dias.   
@@ -170,8 +170,8 @@ A procura em cada uma das lojas segue uma distribuição uniforme, entre 0 a 5 u
 
 \begin{itemize}
 \item Distribuição \emph{X} \approx Uniforme[0;5];
-\item Média da distribuição: \dfrac{5 - 0}{2} = 2.5 unidades
-\item Variância: \dfrac{(5 - 0)^2}{12} = 2.0833;
+\item Média da distribuição: \frac{5 - 0}{2} = 2.5 unidades
+\item Variância: \frac{(5 - 0)^2}{12} = 2.0833;
 \item Desvio padrão: \sqrt{2.0833} = 1.4434;
 \end{itemize}
 
@@ -180,14 +180,14 @@ Inicializando o processo de cálculo com \emph{E(DDLT > S)} = 0:
 \begin{itemize}
 \item \emph{1ª iteração:}
 
-	\emph{q*}=\sqrt{\dfrac{2 \times r \times (C2 \times E(DDLT > S) + C3)}{C1}}
-	\emph{q*}=\sqrt{\dfrac{2 \times 2.5 \times 365 \times (30 \times 0 + 2.75)}{17.50}}
+	\emph{q*}=\sqrt{\frac{2 \times r \times (C2 \times E(DDLT > S) + C3)}{C1}}
+	\emph{q*}=\sqrt{\frac{2 \times 2.5 \times 365 \times (30 \times 0 + 2.75)}{17.50}}
 	\emph{q*}=16.9347 \approx 17 unidades;
 
 	Com \emph{q} determinado, é possível calcular \emph{P(DDLT > S)} utilizando:
 
-	\emph{P(DDLT > S)}=\dfrac{\emph{C1 \times q}}{\emph{C1 \times q}+\emph{C2 \times r}}
-	\emph{P(DDLT > S)}=\dfrac{\emph{17.50 \times 17}}{\emph{17.50 \times 17}+\emph{30 \times 2.5 \times 365}}
+	\emph{P(DDLT > S)}=\frac{\emph{C1 \times q}}{\emph{C1 \times q}+\emph{C2 \times r}}
+	\emph{P(DDLT > S)}=\frac{\emph{17.50 \times 17}}{\emph{17.50 \times 17}+\emph{30 \times 2.5 \times 365}}
 	\emph{P(DDLT > S)}=0.0108;
 
 	Utilizando o valor de \emph{P(DDLT > S)}, é possível determinar \emph{S} com:
@@ -200,7 +200,7 @@ Inicializando o processo de cálculo com \emph{E(DDLT > S)} = 0:
 	Com \emph{S} calculado, determinamos \emph{E(DDLT > S)} utilizando:
 	
 	\emph{E(DDLT > S)}=\int_S^5 \mathrm{xp(n)}\,\mathrm{d}x - emph{S} \times \emph{P(DDLT > S)}
-	\emph{E(DDLT > S)}=\dfrac{25}{10} - \dfrac{24.4630}{10} - 4.946 \times 0.0108
+	\emph{E(DDLT > S)}=\frac{25}{10} - \frac{24.4630}{10} - 4.946 \times 0.0108
 	\emph{E(DDLT > S)} = 0.0003;
 
 
@@ -208,28 +208,28 @@ Inicializando o processo de cálculo com \emph{E(DDLT > S)} = 0:
 	
 	Para a segunda iteração é utilizado \emph{E(DDLT > S)} = 0.0003;
 
-	\emph{q*}=\sqrt{\dfrac{2 \times r \times (C2 \times E(DDLT > S) + C3)}{C1}}
-	\emph{q*}=\sqrt{\dfrac{2 \times 2.5 \times 365 \times (30 \times 0.0003 + 2.75)}{17.50}}
+	\emph{q*}=\sqrt{\frac{2 \times r \times (C2 \times E(DDLT > S) + C3)}{C1}}
+	\emph{q*}=\sqrt{\frac{2 \times 2.5 \times 365 \times (30 \times 0.0003 + 2.75)}{17.50}}
 	\emph{q*}=16.9624 \approx 17 unidades
 
 	Com \emph{q} determinado, é possível calcular \emph{P(DDLT > S)} utilizando:
 
-	\emph{P(DDLT > S)}=\dfrac{\emph{C1 \times q}}{\emph{C1 \times q}+\emph{C2 \times r}}
-	\emph{P(DDLT > S)}=\dfrac{\emph{17.50 \times 17}}{\emph{17.50 \times 17}+\emph{30 \times 2.5 \times 365}}
+	\emph{P(DDLT > S)}=\frac{\emph{C1 \times q}}{\emph{C1 \times q}+\emph{C2 \times r}}
+	\emph{P(DDLT > S)}=\frac{\emph{17.50 \times 17}}{\emph{17.50 \times 17}+\emph{30 \times 2.5 \times 365}}
 	\emph{P(DDLT > S)}=0.0108;
 
 	Utilizando o valor de \emph{P(DDLT > S)}, é possível determinar \emph{S} com:
 	
 	\emph{P(DDLT > S)}=\int_S^5 \mathrm{p(n)}\,\mathrm{d}x
 	0.0108=\int_S^5 \mathrm{1/5}\,\mathrm{d}x
-	0.0108=\dfrac{5}{5} - \dfarc{S}{5}
+	0.0108=\frac{5}{5} - \farc{S}{5}
 	\emph{S}=4.946 unidades;
 
 	Com \emph{S} calculado, determinamos \emph{E(DDLT > S)} utilizando:
 	
 	\emph{E(DDLT > S)}=\int_S^5 \mathrm{xp(n)}\,\mathrm{d}x - emph{S} \times \emph{P(DDLT > S)}
-	\emph{E(DDLT > S)}=\dfrac{25}{10} - \dfrac{24.4630}{10} - 4.946 \times 0.0108
-	\emph{E(DDLT > S)} = 0.0003
+	\emph{E(DDLT > S)}=\frac{25}{10} - \frac{24.4630}{10} - 4.946 \times 0.0108
+	\emph{E(DDLT > S)} = 0.0003;
 
 	O valor de \emph{E(DDLT > S)} da interação atual é igual ao valor da iteração anterior, logo, esta é a última iteração.
 
@@ -245,8 +245,8 @@ De acordo com os cálculos efetudos, determinamos para cada uma das lojas os seg
 Os resultados obtidos permitem concluir que uma ordem de reabastecimento com a quantia constante de 17 unidades deverá ser enviada sempre que o stock em loja atinge valores inferiores a 5 artigos. Adicionalmente, e sendo a procura conhecida, é possível calcular o valor aproximado de:
 
 \begin{itemize}
-\item Frequência de encomendas: \dfrac{\emph{q}}{\emph{r}} = \dfrac{17}{2.5} \approx 7 dias;
-\item Encomendas anuais: \dfrac{\emph{r}}{\emph{q}} = \dfrac{2.5 \times 365}{17} \approx 54 encomendas;
+\item Frequência de encomendas: \frac{\emph{q}}{\emph{r}} = \frac{17}{2.5} \approx 7 dias;
+\item Encomendas anuais: \frac{\emph{r}}{\emph{q}} = \frac{2.5 \times 365}{17} \approx 54 encomendas;
 \end{itemize}
 
 Ao seguir esta política, cada loja lançará por ano cerca de 54 pedidos de reabastecimento, com um intervalo entre dois pedidos consecutivos aproximadamente igual a 7 dias.   
