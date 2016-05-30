@@ -1,0 +1,353 @@
+\chapter{Parte I}
+
+\section{Análise do problema}
+
+O objetivo da primeira parte corresponde a modelar a gestão de inventário para
+a empresa fictícia W\&W, através da aplicação da política de gestão de
+inventários do tipo Nível de Encomenda. Esta empresa armazena o \emph{stock} comprado
+ao fabricante no seu armazém central, que por sua vez o distribui por três lojas
+para venda ao público. O armazém e as lojas operam de forma diferente, facto que
+requere a criação de um modelo diferente para cada tipo de entidade.
+
+\subsection{Pressupostos assumidos} 
+
+Considerando que a falta de \emph{stock} numa loja resulta na perda do lucro associado
+á venda do artigo, ou seja, a diferença entre o preço de venda ao cliente final
+e o preço de aquisição ao fabricante. Consequentemente, foi assumido que o custo
+de quebra nas lojas é igual á margem de lucro perdida na venda de cada artigo.
+
+A margem de lucro em cada artigo vendido é também o custo de quebra assumido
+para o armazém, pois este distribui o \emph{stock} da empresa pelas três lojas de venda
+ao público. A quebra de \emph{stock} no armazém irá inevitavelmente interromper
+o fornecimento de artigo ás lojas, causando a perda de vendas, e do lucro
+associado. 
+
+A taxa de procura para o armazém não está especificada no enunciado. No entanto,
+a taxa de procura diária de cada uma das três lojas cujo \emph{stock} provem do armazém
+segue uma distribuição uniforme, entre 0 a 5 unidades. Considerando este facto,
+é plausível assumir que a procura diária para o armazém é igual á soma da
+procura nas três lojas de que o armazém fornece.  
+
+É também conveniente considerar que os artigos comercializados por a W\&W não
+requerem nenhuma atenção especial do ponto de vista logístico. Num caso real, as
+propriedades inerentes a cada artigo podem levantar dificuldades operacionais,
+ou até mesmo tornar certas políticas de gestão inventário impraticáveis. 
+
+Por fim, apesar de todas as distribuições usadas na parte I do trabalho serem
+uniformes, assumimos, segundo as indicações do enunciado, que todas as variáveis
+\texttt{DDLT} seguem leis Normais. 
+
+\newpage
+
+\subsection{Cálculos}
+
+Para modelar a gestão de inventário da empresa W\&W, será necessário determinar
+a quantidade de encomenda q, e o nível de inventário S. No enunciado são
+providenciados os seguintes dados:
+
+\begin{itemize}
+	\item Dados relativos ao armazém:
+		\begin{itemize}
+			\item Valor de aquisição por artigo: 70 euros;
+			\item Custo por encomenda á fábrica: 200 euros;
+			\item Tempo de entrega da fábrica: 10 + (D1/2) dias;
+			\item Taxa de posse anual: 21\%;
+		\end{itemize}
+	\item Dados relativos ás lojas:
+		\begin{itemize}
+			\item Procura: Distribuição uniforme, entre 0 a 5 unidades;
+			\item Preço unitário de venda: 100 euros;
+			\item Custo por entrega do armazém: 2.75 euros;
+			\item Tempo de entrega do armazém: 3 dias;
+			\item Taxa de posse anual: 25\%;
+		\end{itemize}
+\end{itemize}
+
+\subsection{Política Nível de Encomenda para o armazém}
+
+O armazém é responsável por a gestão do nível de inventário da empresa, servindo
+de intermediário entre o fabricante do artigo e as lojas de venda ao público.
+Utilizando os dados anteriormente referidos determinamos:
+
+\begin{itemize}
+	\item Prazo de entrega $l = 10 + \frac{8}{2}= 14$  dias;
+	\item Custo anual de posse 
+		$C1 = b\times i = 70 \times 0.21 = 14.70$ euros por artigo por ano;
+	\item Custo de quebra $C2 = 100 - 70 = 30$ euros por artigo;
+	\item Custo de passagem de encomenda $C3 = 200$ euros por encomenda;
+\end{itemize}
+
+Para o cálculo do prazo de entrega de uma encomenda ao armazém, foi usado
+o último dígito do número de aluno 72628.
+
+Tal como anteriormente referido, assume-se para o armazém uma procura
+uniformemente distribuída, entre 0 e 15 unidades, que corresponde á soma das
+procuras individuais de cada loja por este abastecida. Desta forma, é utilizado:
+
+\begin{itemize}
+	\item Distribuição $X \approx Uniforme[0;15]$;
+	\item Média da distribuição: $\frac{15 - 0}{2}= 7.5$ unidades;
+	\item Desvio padrão: $\sqrt{18.75}= 4.3301$;
+\end{itemize}
+
+Inicializando o processo de cálculo com $E [DDLT > S ] = 0$:
+
+\begin{itemize}
+	\item 1ª iteração:
+\begin{align*}	
+	q*&=\sqrt{\frac{2 \times r \times (C2 \times E(DDLT > S) + C3)}{C1}}\\
+	q*&=\sqrt{\frac{2 \times 7.5 \times 365 \times (30 \times 0 + 200)}{14.70}}\\
+	q*&=272.9281 \approx 273 \text{ unidades};
+	\label{}
+\end{align*}
+
+
+	Com q determinado, é possível calcular \texttt{P(DDLT > S)} com:
+	\begin{align*}	
+	P(DDLT > S)&=\frac{C1 \times q}{C2 \times r}
+	P(DDLT > S)&=\frac{14.70 \times 273}{30 \times 7.5 \times 365}
+	P(DDLT > S)&=0.0489
+		\label{}
+	\end{align*}
+
+
+	Através da tabela Área da Distribuição Normal Padrão, $N(0,1)$, disponível
+	nos apontamentos da unidade curricular, obtém-se $Z \approx 1.66i$;
+	
+	Para determinar o segundo integral, necessário ao calculo de \texttt{E(DDLT
+	> S)}, temos:
+
+
+$$\begin{cases}
+	Z=\frac{3 \times N}{100}\\
+	N=55;
+\end{cases}$$
+
+	Através da tabela Função de Densidade Normal Padrão, $N(0,1)$, disponível nos
+	apontamentos da unidade curricular, obtém-se o segundo integral: $0.018440$;
+
+	Com o segundo integral, é possível calcular \texttt{E(DDLT > S)}, utilizando:
+
+	\begin{align*}	
+	E(DDLT > S) &= \text{ 2º integral} integral \times \sigma_{DDLT}\\
+	E(DDLT > S) &= 0.018440 \times \sqrt{ l \times sigma_r^2}\\
+	E(DDLT > S) &= 0.018440 \times \sqrt{14 \times 4.3301}\\
+	E(DDLT > S) &= 0.018440 \times 7.7860\\
+	E(DDLT > S) &= 0.1436
+	\end{align*}
+
+
+	\begin{align*}	
+	S = \mu_{DDLT} + Z \times \sigma_{DDLT}\\
+	S = r \times l + Z \times \sigma_{DDLT}\\
+	S = 7.5 \times 14 + 1.66 \times 7.7860\\
+	S = 117.9248 \approx 118 \text{ unidades}
+	\end{align*}
+
+	
+\item 2ª iteração:
+	
+	Para a segunda iteração é utilizado $E(DDLT > S) = 0.1436$;
+	
+	\begin{align*}	
+	q*&=\sqrt{\frac{2 \times r \times (C2 \times E(DDLT > S) + C3)}{C1}}\\
+	q*&=\sqrt{\frac{2 \times 7.5 \times 365 \times (30 \times 0.1436
+	+ 200)}{14.70}}\\
+	q*&=275.8519 \approx 276 \text{ unidades}
+	\end{align*}
+
+	Com q determinado, é possível calcular \texttt{P(DDLT > S)} utilizando:
+
+	\begin{align*}	
+	P(DDLT > S)&=\frac{C1 \times q}{C2 \times r}\\
+	P(DDLT > S)&=\frac{14.70 \times 276}{30 \times 7.5 \times 365}\\
+	P(DDLT > S)&=0.0494
+	\end{align*}
+
+	Através da tabela Área da Distribuição Normal Padrão, $N(0,1)$, disponível
+	nos apontamentos da unidade curricular, obtém-se $Z \approx 1.65$;
+	
+	Para determinar o segundo integral, necessário ao calculo de \texttt{E(DDLT > S)}, temos:
+	
+	$$
+	\begin{cases}
+		Z=\frac{3 \times N}{100}\\
+	  N=55
+	\end{cases}	
+	$$;
+
+	Através da tabela Função de Densidade Normal Padrão, $N(0,1)$, disponível
+	nos apontamentos da unidade curricular, obtém-se o segundo integral:
+	$0.018440$;
+
+	Com o segundo integral, é possível calcular \texttt{E(DDLT > S)}, com:
+
+	\begin{align*}	
+	E(DDLT > S) &= 0.018440 \times \sigma_{DDLT}\\
+	E(DDLT > S) &= 0.018440 \times \sqrt{l \times \sigma_r^2}\\
+	E(DDLT > S) &= 0.018440 \times \sqrt{14 \times 4.3301}\\
+	E(DDLT > S) &= 0.018440 \times 7.7860\\
+	E(DDLT > S) &= 0.1436
+	\end{align*}
+
+	Como o valor de \texttt{E(DDLT > S)} da iteração atual é igual ao valor da iteração
+	anterior, esta é a última iteração.
+
+	\begin{align*}	
+	S &= \mu_{DDLT} + Z \times \sigma_{DDLT}\\
+	S &= r \times l + Z \times \sigma_{DDLT}\\
+	S &= 7.5 \times 14 + 1.65 \times 7.7860\\
+	S &= 117.8469 \approx 118 \text{ unidades}
+	\end{align*}
+
+\end{itemize}
+
+De acordo com os cálculos efetuados, determinamos para o armazém os seguintes
+valores:
+
+\begin{itemize}
+\item Quantidade de encomenda $q = 276$ unidades;
+\item Nível de inventário     $S = 118$ unidades;
+\end{itemize}
+
+Os resultados obtidos permitem concluir que uma ordem de encomenda com a quantia
+constante de 276 unidades deverá ser enviada sempre que o \emph{stock} em armazém
+atinge valores inferiores a 118 artigos. Adicionalmente, e sendo a procura
+conhecida, é possível calcular o valor aproximado de:
+
+\begin{itemize}
+\item Frequência de encomendas: $\frac{q}{r} = \frac{276}{7.5} \approx 37$ dias;
+\item Encomendas anuais: $\frac{r}{q} = \frac{7.5 \times 365}{276} \approx 10$ encomendas;
+\end{itemize}
+
+Ao seguir esta política, o armazém realizará por ano cerca de 10 encomendas, com
+um intervalo entre dois pedidos de encomenda consecutivos aproximadamente igual
+a 37 dias.   
+
+
+\subsection{Política Nível de Encomenda para as lojas}
+
+Para cada uma das lojas, são especificados os seguintes dados:
+
+\begin{itemize}
+\item Custo anual de posse $C1 = b \times i = 70 \times 0.25 = 17.50$ 
+	euros por artigo por ano;
+\item Custo de quebra $C2 = 30$ euros por artigo;
+\item Custo de passagem de encomenda $C3 = 2.75$ euros por encomenda;
+\item Procura 
+\end{itemize}
+
+A procura em cada uma das lojas segue uma distribuição uniforme, entre
+0 a 5 unidades de artigo. Consequentemente, temos:
+
+\begin{itemize}
+\item Distribuição           $X \approx Uniforme[0;5];$
+\item Média da distribuição: $\frac{5 - 0}{2}= 2.5$ unidades
+	\item Variância:             $\frac{(5 - 0)^2}{12}= 2.0833$;
+	\item Desvio padrão:         $\sqrt{2.0833}= 1.4434$;
+\end{itemize}
+
+Inicializando o processo de cálculo com $E(DDLT > S) = 0$:
+
+\begin{itemize}
+\item 1ª iteração:
+
+	\begin{align*}	
+	q*&=\sqrt{\frac{2 \times r \times (C2 \times E(DDLT > S) + C3)}{C1}}\\
+	q*&=\sqrt{\frac{2 \times 2.5 \times 365 \times (30 \times 0 + 2.75)}{17.50}}\\
+	q*&=16.9347 \approx 17 \text{ unidades};
+	\end{align*}
+
+	Com q determinado, é possível calcular \texttt{P(DDLT > S)} utilizando:
+
+	\begin{align*}	
+	P(DDLT > S)&=\frac{C1 \times q}{C1 \times q}+C2 \times r\\
+	P(DDLT > S)&=\frac{17.50 \times 17}{17.50 \times 17}+30 \times 2.5 \times
+	365\\
+	P(DDLT > S)&=0.0108
+	\end{align*}
+
+	Utilizando o valor de \texttt{P(DDLT > S)}, é possível determinar\texttt{S} com:
+	
+	\begin{align*}	
+	P(DDLT > S)&=\int_S^5 \mathrm{p(n)}\,\mathrm{d}x\\
+	0.0108     &=\int_S^5 \mathrm{1/5}\,\mathrm{d}x\\
+	0.0108     &=\dfrac{5}{5} - \dfrac{S}{5}\\
+	S          &=4.946 \text{ unidades}
+	\end{align*}
+
+	Com S calculado, determinamos \texttt{E(DDLT > S)} utilizando:
+	
+	\begin{align*}	
+	E(DDLT > S)&=\int_S^5 \mathrm{xp(n)}\,\mathrm{d}x - S \times P(DDLT > S)\\
+	E(DDLT > S)&=\frac{25}{10} - \frac{24.4630}{10} - 4.946 \times 0.0108\\
+	E(DDLT > S)&= 0.0003
+	\end{align*}
+
+
+\item 2ª iteração:
+	
+	Para a segunda iteração é utilizado $E(DDLT > S) = 0.0003$;
+
+	\begin{align*}	
+	q*&=\sqrt{\frac{2 \times r \times (C2 \times E(DDLT > S) + C3)}{C1}}\\
+	q*&=\sqrt{\frac{2 \times 2.5 \times 365 \times (30 \times 0.0003
+	+ 2.75)}{17.50}}\\
+	q*&=16.9624 \approx 17 \text{ unidades}
+	\end{align*}
+
+	Com q determinado, é possível calcular \texttt{P(DDLT > S)} utilizando:
+
+	\begin{align*}	
+	P(DDLT > S)&=\frac{C1 \times q}{C1 \times q}+C2 \times r\\
+	P(DDLT > S)&=\frac{17.50 \times 17}{17.50 \times 17}+30 \times 2.5 \times 365\\
+	P(DDLT > S)&=0.0108
+	\end{align*}
+
+	Utilizando o valor de \texttt{P(DDLT > S)}, é possível determinar S com:
+	
+	\begin{align*}	
+	P(DDLT > S)&=\int_S^5 \mathrm{p(n)}\,\mathrm{d}x\\
+	0.0108     &=\int_S^5 \mathrm{1/5}\,\mathrm{d}x\\
+	0.0108     &=\frac{5}{5} - \frac{S}{5}\\
+	S          &=4.946 \text{ unidades}
+	\end{align*}
+
+	Com S calculado, determinamos \texttt{E(DDLT > S)} utilizando:
+	
+	\begin{align*}	
+		E(DDLT > S)&=\int_S^5 \mathrm{xp(n)}\,\mathrm{d}x - S \times P(DDLT
+		> S)\\
+		E(DDLT > S)&=\frac{25}{10} - \frac{24.4630}{10} - 4.946 \times 0.0108\\
+	  E(DDLT > S)&= 0.0003
+	\end{align*}
+
+	O valor de \texttt{E(DDLT > S)} da interação atual é igual ao valor da iteração
+	anterior, logo, esta é a última iteração.
+
+\end{itemize}
+
+De acordo com os cálculos efetuados, determinamos para cada uma das lojas os
+seguintes valores:
+
+\begin{itemize}
+\item Quantidade de encomenda $q = 17$ unidades;
+\item Nível de inventário $S = 5$ unidades;
+\end{itemize}
+
+Os resultados obtidos permitem concluir que uma ordem de reabastecimento com
+a quantia constante de 17 unidades deverá ser enviada sempre que o \emph{stock} em loja
+atinge valores inferiores a 5 artigos. Adicionalmente, e sendo a procura
+conhecida, é possível calcular o valor aproximado de:
+
+\begin{itemize}
+\item Frequência de encomendas: $\frac{q}{r} = \frac{17}{2.5} \approx 7$ dias;
+\item Encomendas anuais:        $\frac{r}{q} = \frac{2.5 \times 365}{17}
+	\approx 54 encomendas$;
+\end{itemize}
+
+Ao seguir esta política, cada loja lançará por ano cerca de 54 pedidos de
+reabastecimento, com um intervalo entre dois pedidos consecutivos
+aproximadamente igual a 7 dias.   
+
+
