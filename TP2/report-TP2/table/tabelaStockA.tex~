@@ -1,0 +1,17 @@
+\begin{table}[htpb]
+\begin{center}
+\begin{tabular}{cc}
+\toprule
+Dia & Stock	 	\\ \midrule
+40 & 146                \\ 
+80 & 116                \\ 
+120 & 103               \\ 
+160 & 107               \\ 
+200 & 77     		\\ 
+\bottomrule
+\end{tabular}
+\end{center}
+\caption{Nível de stock no armazém}
+\label{tab:tabela1}
+\end{table}
+

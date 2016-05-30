@@ -1,0 +1,6 @@
+\begin{figure}[<+htpb+>]
+	\centering
+	\includegraphics[scale=0.75]{./report-TP2/img/Slado.png}
+	\caption{Saldo acumulado no final do jogo}
+\label{fig:figure1}
+\end{figure}
